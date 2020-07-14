@@ -1,0 +1,37 @@
+<mat-vertical-stepper #stepper linear>
+    <mat-step *ngFor="let group of form.controls; let i = index" [stepControl]="form.controls[i]" [editable]="false"
+        [optional]="false">
+        <form [formGroup]="form.controls[i]">
+            <ng-template matStepLabel>Question {{i + 1}}</ng-template>
+            <div>Answer correctly and you can win {{stakes[i].guaranteed ? 'guaranteed' : null}} {{i == 11 ? 'main pize of' : null}} {{stakes[i].amount}}!
+            </div>
+            <div [innerHTML]="questions[i].question"></div>
+            <mat-radio-group formControlName="radio" aria-label="Select an option">
+                <mat-radio-button [value]="mixedAnswers[i][0]">
+                    <div [innerHTML]="mixedAnswers[i][0]"></div>
+                </mat-radio-button>
+                <mat-radio-button [value]="mixedAnswers[i][1]">
+                    <div [innerHTML]="mixedAnswers[i][1]"></div>
+                </mat-radio-button>
+                <mat-radio-button [value]="mixedAnswers[i][2]">
+                    <div [innerHTML]="mixedAnswers[i][2]"></div>
+                </mat-radio-button>
+                <mat-radio-button [value]="mixedAnswers[i][3]">
+                    <div [innerHTML]="mixedAnswers[i][3]"></div>
+                </mat-radio-button>
+            </mat-radio-group>
+            <div>
+                <button mat-raised-button [disabled]="this.form.controls[i].value.radio == ''" color="primary"
+                    (click)="verification(i, stepper)">Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="restartGame(stepper)">Reset</button>
+        </div>
+    </mat-step>
+</mat-vertical-stepper>
