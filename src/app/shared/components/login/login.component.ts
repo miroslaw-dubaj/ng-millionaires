@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
       const game = storageData.games.find(u => u.userName == formValues.login)  
       if (game.password == formValues.password) {
         this.auth.isUserAuth = true;
+        this.router.navigate(['/millionaires'])
       } else {
         const currentGameIndex = storageData.games.findIndex(game => game.userName == null);
         storageData.games[currentGameIndex].userName = formValues.login;
