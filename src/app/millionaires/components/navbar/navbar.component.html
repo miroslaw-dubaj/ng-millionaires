@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+    <span routerLink="/">Ng Millionaires</span>
+    <span class="spacer"></span>
+    <span>{{ userService.playerName }}</span>
+    <mat-icon routerLink="/login" aria-hidden="false" aria-label="Example user verified icon">login</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

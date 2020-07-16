@@ -1,1 +1,18 @@
-<p>login works!</p>
+<form [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Enter login</mat-label>
+        <input formControlName="login" matInput placeholder="My login is...">
+        <mat-icon matSuffix>perm_identity</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter password</mat-label>
+        <input formControlName="password" type="password" matInput placeholder="shhh... it's a secret">
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+    <div>
+        <button routerLink="/" mat-raised-button color="primary">Cancel</button>
+        <button mat-raised-button color="accent" (click)="userLogin(form.value)">
+            Login<mat-icon>login</mat-icon>
+        </button>
+    </div>
+</form>

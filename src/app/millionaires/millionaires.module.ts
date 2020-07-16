@@ -10,15 +10,27 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 
 import { WelcomeScreenComponent } from './components/welcome-screen/welcome-screen.component';
 import { StepperComponent } from './components/stepper/stepper.component';
-import { DialogComponent } from './components/dialog/dialog.component';
+import { QuestionDialogComponent } from './components/question-dialog/question-dialog.component';
 
 import { MillionairesRestService } from './services/millionaires.rest.service';
+import { LooseDialogComponent } from './components/loose-dialog/loose-dialog.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
-  declarations: [WelcomeScreenComponent, StepperComponent, DialogComponent],
+  declarations: [
+    WelcomeScreenComponent,
+    StepperComponent,
+    QuestionDialogComponent,
+    LooseDialogComponent,
+    NavbarComponent
+  ],
   imports: [
     CommonModule,
     MillionairesRoutingModule,
@@ -31,9 +43,13 @@ import { MillionairesRestService } from './services/millionaires.rest.service';
     MatRadioModule,
     MatButtonModule,
     MatDialogModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [
     MillionairesRestService,
+    UserService,
   ]
 })
 export class MillionairesModule { }

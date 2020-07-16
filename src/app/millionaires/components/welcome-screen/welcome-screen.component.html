@@ -1,1 +1,8 @@
-<p>welcome-screen works!</p>
+<form [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Enter Your Name</mat-label>
+        <input formControlName="name" matInput placeholder="My name is...">
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+    <button mat-raised-button color="accent" (click)="startGame(form.value)">Start Game</button>
+</form>

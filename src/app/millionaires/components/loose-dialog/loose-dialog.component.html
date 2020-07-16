@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>You lost</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>{{ data.currentGuaranteed ? ( data.user + ', You won ' + data.currentGuaranteed + ' guaranteed win!') : ('Hitchhike home ' + data.user + '...')}}</h3>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Leave Game</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Restart Game</button>
+</mat-dialog-actions>
