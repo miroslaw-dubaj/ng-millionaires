@@ -55,6 +55,7 @@ export class StepperComponent implements OnDestroy {
 
           if (this.gameService.getStakes()[i].guaranteed) {
             this.gameService.setGuaranteed(this.gameService.getStakes()[i].amount)
+            this.gameService.setCurrentQuestion(i + 1);
           }
 
           stepper.next();
